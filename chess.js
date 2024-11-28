@@ -1,30 +1,57 @@
-// renderer
-let x = prompt("Enter the character name:", "Paraszt");
-switch (x) {
-    case 'Paraszt':
-        var wx = "&#9817;";
-        var bx = "&#9823;";
-        break;
-    case 'bastya':
-        var wx = "&#9814;";
-        var bx = "&#9820;";
-        break;
-    case 'Futo':
-        var wx = "&#9815;";
-        var bx = "&#9821;";
-        break;
-    case 'lo':
-        var wx = "&#9816;";
-        var bx = "&#9822;";
-        break;
-    default:
-        break;
-}
+var wx = "&#9817;";
+var bx = "&#9823;";
 
 function ShowMoves(from) {
-    console.log(from);
+    let x = document.getElementById(from).innerHTML;
+
+    switch (x) {
+        case '♙':
+            var name = "WP";
+            console.log(layout[name]);
+            break;
+        case '♟':
+            var name = "BP";
+            console.log(layout[name]);
+            break;
+        case '♖':
+            var name = "WR";
+            console.log(layout[name]);
+            break;
+        case '♜':
+            var name = "BR";
+            console.log(layout[name]);
+            break;
+        case '♗':
+            var name = "WB";
+            console.log(layout[name]);
+            break;
+        case '♝':
+            var name = "BB";
+            console.log(layout[name]);
+            break;
+        case '♘':
+            var name = "WN";
+            console.log(layout[name]);
+            break;
+        case '♞':
+            var name = "BN";
+            console.log(layout[name]);
+            break;
+        default:
+            break;
+    }
 }
 
+const layout = {
+    'WP': 'White Pawn', 
+    'BP': 'Black Pawn', 
+    'WR': 'White Rook', 
+    'BR': 'Black Rook', 
+    'WB': 'White Bishop', 
+    'BB': 'Black Bishop', 
+    'WN': 'White Night', 
+    'BN': 'Black Night'
+};
 const wchars = ["A",  "C",  "E",  "G"];
 const bchars = ["B", "D", "F", "H"];
 let counter = 1;
