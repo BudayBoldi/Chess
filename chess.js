@@ -5,10 +5,18 @@ function ShowMoves(from) {
         case '♙':
             var name = "WP";
             console.log(layout[name]['char']);
+            for (let i = 1; i <= 2; i++) {
+                let ic = from.split(/(\d+)/);
+                layout[name]['move'].push(ic[0] + (Number(ic[1]) + i));
+            }
             break;
         case '♟':
             var name = "BP";
             console.log(layout[name]['char']);
+            for (let i = -1; i >= -2; i--) {
+                let ic = from.split(/(\d+)/);
+                layout[name]['move'].push(ic[0] + (Number(ic[1]) + i));
+            }
             break;
         case '♖':
             var name = "WR";
