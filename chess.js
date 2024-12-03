@@ -6,11 +6,10 @@ function ShowMoves(from) {
             var name = "WP";
             console.log(layout[name]['char']);
             layout[name]['move'] = [];
-
+            var ic = from.split(/(\d+)/);
             layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) - 1]);
             layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) + 1]);
             for (let i = 1; i <= 2; i++) {
-                let ic = from.split(/(\d+)/);
                 layout[name]['move'].push(ic[0] + (Number(ic[1]) + i));
             }
             HighLight(layout[name]['move']);
@@ -19,11 +18,10 @@ function ShowMoves(from) {
             var name = "BP";
             console.log(layout[name]['char']);
             layout[name]['move'] = [];
-
+            var ic = from.split(/(\d+)/);
             layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) - 1]);
             layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) + 1]);
             for (let i = -1; i >= -2; i--) {
-                let ic = from.split(/(\d+)/);
                 layout[name]['move'].push(ic[0] + (Number(ic[1]) + i));
             }
             HighLight(layout[name]['move']);
