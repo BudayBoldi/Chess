@@ -5,18 +5,28 @@ function ShowMoves(from) {
         case '♙':
             var name = "WP";
             console.log(layout[name]['char']);
+            layout[name]['move'] = [];
+
+            layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) - 1]);
+            layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) + 1]);
             for (let i = 1; i <= 2; i++) {
                 let ic = from.split(/(\d+)/);
                 layout[name]['move'].push(ic[0] + (Number(ic[1]) + i));
             }
+            HighLight(layout[name]['move']);
             break;
         case '♟':
             var name = "BP";
             console.log(layout[name]['char']);
+            layout[name]['move'] = [];
+
+            layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) - 1]);
+            layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) + 1]);
             for (let i = -1; i >= -2; i--) {
                 let ic = from.split(/(\d+)/);
                 layout[name]['move'].push(ic[0] + (Number(ic[1]) + i));
             }
+            HighLight(layout[name]['move']);
             break;
         case '♖':
             var name = "WR";
@@ -112,3 +122,13 @@ do {
     }
     counter += 1;
 } while(counter != 9);
+
+function HighLight(arr) {
+    arr.forEach(function(item) {
+        let ogbg = document.getElementById(item).style.backgroundColor;
+        document.getElementById(item).style.backgroundColor = "LightBlue";
+        setTimeout(() => {
+            document.getElementById(item).style.backgroundColor = ogbg;
+        }, 1000);
+    });
+}
