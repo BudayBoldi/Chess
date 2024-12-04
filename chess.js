@@ -7,10 +7,20 @@ function ShowMoves(from) {
             console.log(layout[name]['char']);
             layout[name]['move'] = [];
             var ic = from.split(/(\d+)/);
-            layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) - 1]);
-            layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) + 1]);
+
+            if (ic[0] == "A") {
+                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) + 1].split(/(\d+)/)[0] + (Number(ic[1]) + 1));
+            } else if (ic[0] == "H") {
+                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) - 1].split(/(\d+)/)[0] + (Number(ic[1]) + 1));
+            } else {
+                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) + 1].split(/(\d+)/)[0] + (Number(ic[1]) + 1));
+                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) - 1].split(/(\d+)/)[0] + (Number(ic[1]) + 1));
+            }
+
             for (let i = 1; i <= 2; i++) {
-                layout[name]['move'].push(ic[0] + (Number(ic[1]) + i));
+                if (!((Number(ic[1]) + i) > 8)) {
+                    layout[name]['move'].push(ic[0] + (Number(ic[1]) + i));
+                }
             }
             HighLight(layout[name]['move']);
             break;
@@ -19,10 +29,20 @@ function ShowMoves(from) {
             console.log(layout[name]['char']);
             layout[name]['move'] = [];
             var ic = from.split(/(\d+)/);
-            layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) - 1]);
-            layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) + 1]);
+
+            if (ic[0] == "A") {
+                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) + 1]);
+            } else if (ic[0] == "H") {
+                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) - 1]);
+            } else {
+                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) + 1]);
+                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) - 1]);
+            }
+            
             for (let i = -1; i >= -2; i--) {
-                layout[name]['move'].push(ic[0] + (Number(ic[1]) + i));
+                if (!((Number(ic[1]) + i) < 1)) {
+                    layout[name]['move'].push(ic[0] + (Number(ic[1]) + i));
+                }
             }
             HighLight(layout[name]['move']);
             break;
