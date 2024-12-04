@@ -1,20 +1,30 @@
 function ShowMoves(from) {
-    let x = document.getElementById(from).innerHTML;
+    x = document.getElementById(from);
 
-    switch (x) {
+    switch (x.innerHTML) {
         case '♙':
             var name = "WP";
             console.log(layout[name]['char']);
             layout[name]['move'] = [];
             var ic = from.split(/(\d+)/);
+            var mp = layout[name]['start'][layout[name]['start'].indexOf(from) + 1].split(/(\d+)/)[0] + (Number(ic[1]) + 1);
+            var mm = layout[name]['start'][layout[name]['start'].indexOf(from) - 1].split(/(\d+)/)[0] + (Number(ic[1]) + 1);
 
             if (ic[0] == "A") {
-                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) + 1].split(/(\d+)/)[0] + (Number(ic[1]) + 1));
+                if (!document.getElementById(mp).innerHTML == "") {
+                    layout[name]['move'].push(mp);
+                }
             } else if (ic[0] == "H") {
-                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) - 1].split(/(\d+)/)[0] + (Number(ic[1]) + 1));
+                if (!document.getElementById(mm).innerHTML == "") {
+                    layout[name]['move'].push(mm);
+                }
             } else {
-                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) + 1].split(/(\d+)/)[0] + (Number(ic[1]) + 1));
-                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) - 1].split(/(\d+)/)[0] + (Number(ic[1]) + 1));
+                if (!document.getElementById(mp).innerHTML == "") {
+                    layout[name]['move'].push(mp);
+                }
+                if (!document.getElementById(mm).innerHTML == "") {
+                    layout[name]['move'].push(mm);
+                }
             }
 
             for (let i = 1; i <= 2; i++) {
@@ -29,14 +39,24 @@ function ShowMoves(from) {
             console.log(layout[name]['char']);
             layout[name]['move'] = [];
             var ic = from.split(/(\d+)/);
-
+            var mp = layout[name]['start'][layout[name]['start'].indexOf(from) + 1].split(/(\d+)/)[0] + (Number(ic[1]) - 1);
+            var mm = layout[name]['start'][layout[name]['start'].indexOf(from) - 1].split(/(\d+)/)[0] + (Number(ic[1]) - 1);
+            
             if (ic[0] == "A") {
-                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) + 1].split(/(\d+)/)[0] + (Number(ic[1]) - 1));
+                if (!document.getElementById(mp).innerHTML == "") {
+                    layout[name]['move'].push(mp);
+                }
             } else if (ic[0] == "H") {
-                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) - 1].split(/(\d+)/)[0] + (Number(ic[1]) - 1));
+                if (!document.getElementById(mm).innerHTML == "") {
+                    layout[name]['move'].push(mm);
+                }
             } else {
-                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) + 1].split(/(\d+)/)[0] + (Number(ic[1]) - 1));
-                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) - 1].split(/(\d+)/)[0] + (Number(ic[1]) - 1));
+                if (!document.getElementById(mp).innerHTML == "") {
+                    layout[name]['move'].push(mp);
+                }
+                if (!document.getElementById(mm).innerHTML == "") {
+                    layout[name]['move'].push(mm);
+                }
             }
             
             for (let i = -1; i >= -2; i--) {
@@ -145,8 +165,15 @@ function HighLight(arr) {
     arr.forEach(function(item) {
         let ogbg = document.getElementById(item).style.backgroundColor;
         document.getElementById(item).style.backgroundColor = "LightBlue";
+        document.getElementById(item).onclick = function () { Clicked(this.id) };
         setTimeout(() => {
             document.getElementById(item).style.backgroundColor = ogbg;
-        }, 1000);
+            document.getElementById(item).onclick = function () { };
+        }, 2500);
     });
+}
+
+function Clicked(to) {
+    document.getElementById(to).innerHTML = x.innerHTML;
+    x.innerHTML = "";
 }
