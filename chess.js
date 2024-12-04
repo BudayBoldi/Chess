@@ -31,12 +31,12 @@ function ShowMoves(from) {
             var ic = from.split(/(\d+)/);
 
             if (ic[0] == "A") {
-                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) + 1].split(/(\d+)/)[0] + (Number(ic[1]) + 1));
+                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) + 1].split(/(\d+)/)[0] + (Number(ic[1]) - 1));
             } else if (ic[0] == "H") {
-                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) - 1].split(/(\d+)/)[0] + (Number(ic[1]) + 1));
+                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) - 1].split(/(\d+)/)[0] + (Number(ic[1]) - 1));
             } else {
-                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) + 1].split(/(\d+)/)[0] + (Number(ic[1]) + 1));
-                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) - 1].split(/(\d+)/)[0] + (Number(ic[1]) + 1));
+                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) + 1].split(/(\d+)/)[0] + (Number(ic[1]) - 1));
+                layout[name]['move'].push(layout[name]['start'][layout[name]['start'].indexOf(from) - 1].split(/(\d+)/)[0] + (Number(ic[1]) - 1));
             }
             
             for (let i = -1; i >= -2; i--) {
