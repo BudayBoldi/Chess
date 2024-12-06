@@ -7,8 +7,8 @@ function ShowMoves(from) {
             console.log(layout[name]['char']);
             layout[name]['move'] = [];
             var ic = from.split(/(\d+)/);
-            var mp = layout[name]['start'][layout[name]['start'].indexOf(from) + 1].split(/(\d+)/)[0] + (Number(ic[1]) + 1);
-            var mm = layout[name]['start'][layout[name]['start'].indexOf(from) - 1].split(/(\d+)/)[0] + (Number(ic[1]) + 1);
+            var mp = wbchars[wbchars.indexOf(ic[0]) + 1] + (Number(ic[1]) + 1);
+            var mm = wbchars[wbchars.indexOf(ic[0]) - 1] + (Number(ic[1]) + 1);
 
             if (ic[0] == "A") {
                 if (!document.getElementById(mp).innerHTML == "") {
@@ -26,7 +26,7 @@ function ShowMoves(from) {
                     layout[name]['move'].push(mm);
                 }
             }
-
+            
             for (let i = 1; i <= 2; i++) {
                 if (!((Number(ic[1]) + i) > 8)) {
                     layout[name]['move'].push(ic[0] + (Number(ic[1]) + i));
@@ -39,8 +39,8 @@ function ShowMoves(from) {
             console.log(layout[name]['char']);
             layout[name]['move'] = [];
             var ic = from.split(/(\d+)/);
-            var mp = layout[name]['start'][layout[name]['start'].indexOf(from) + 1].split(/(\d+)/)[0] + (Number(ic[1]) - 1);
-            var mm = layout[name]['start'][layout[name]['start'].indexOf(from) - 1].split(/(\d+)/)[0] + (Number(ic[1]) - 1);
+            var mp = wbchars[wbchars.indexOf(ic[0]) + 1] + (Number(ic[1]) - 1);
+            var mm = wbchars[wbchars.indexOf(ic[0]) - 1] + (Number(ic[1]) - 1);
             
             if (ic[0] == "A") {
                 if (!document.getElementById(mp).innerHTML == "") {
@@ -108,6 +108,7 @@ const layout = {
 const objKeys = Object.keys(layout);
 const wchars = ["A",  "C",  "E",  "G"];
 const bchars = ["B", "D", "F", "H"];
+const wbchars = ["A", "B", "C", "D", "E", "F", "G", "H"];
 let counter = 1;
 
 do {
