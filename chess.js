@@ -1,6 +1,5 @@
 function ShowMoves(from) {
     x = document.getElementById(from);
-    console.log(x);
 
     switch (x.innerHTML) {
         case '♙':
@@ -11,6 +10,10 @@ function ShowMoves(from) {
             var mp = wbchars[wbchars.indexOf(ic[0]) + 1] + (Number(ic[1]) + 1);
             var mm = wbchars[wbchars.indexOf(ic[0]) - 1] + (Number(ic[1]) + 1);
             var mn = wbchars[wbchars.indexOf(ic[0])] + (Number(ic[1]) + 1);
+
+            if (Number(ic[1]) == 8) {
+                console.log("W");
+            }
 
             if (ic[0] == "A") {
                 if (!document.getElementById(mp).innerHTML == "") {
@@ -32,11 +35,13 @@ function ShowMoves(from) {
             for (let i = 1; i <= 2; i++) {
                 if (!((Number(ic[1]) + i) > 8)) {
                     layout[name]['move'].push(ic[0] + (Number(ic[1]) + i));
-                }
+                } 
+
             	if (!document.getElementById(mn).innerHTML == "") {
             		layout[name]['move'].splice(layout[name]['move'].indexOf(mn), 1);
             	}
             }
+
             HighLight(layout[name]['move']);
             break;
         case '♟':
@@ -47,6 +52,10 @@ function ShowMoves(from) {
             var mp = wbchars[wbchars.indexOf(ic[0]) + 1] + (Number(ic[1]) - 1);
             var mm = wbchars[wbchars.indexOf(ic[0]) - 1] + (Number(ic[1]) - 1);
             var mn = wbchars[wbchars.indexOf(ic[0])] + (Number(ic[1]) - 1);
+
+            if (Number(ic[1]) == 1) {
+                console.log("W");
+            }
             
             if (ic[0] == "A") {
                 if (!document.getElementById(mp).innerHTML == "") {
@@ -68,11 +77,13 @@ function ShowMoves(from) {
             for (let i = -1; i >= -2; i--) {
                 if (!((Number(ic[1]) + i) < 1)) {
                     layout[name]['move'].push(ic[0] + (Number(ic[1]) + i));
-                }
+                } 
+
             	if (!document.getElementById(mn).innerHTML == "") {
             		layout[name]['move'].splice(layout[name]['move'].indexOf(mn), 1);
             	}
             }
+
             HighLight(layout[name]['move']);
             break;
         case '♖':
@@ -100,7 +111,7 @@ function ShowMoves(from) {
             console.log(layout[name]['char']);
             break;
         default:
-        	console.log("Err");
+        	console.log("?");
             break;
     }
 }
