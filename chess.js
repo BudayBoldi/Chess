@@ -12,7 +12,8 @@ function ShowMoves(from) {
             var mn = wbchars[wbchars.indexOf(ic[0])] + (Number(ic[1]) + 1);
 
             if (Number(ic[1]) == 8) {
-                console.log("W");
+                ww += 1;
+                console.log("White Wins: " + ww);
             }
 
             if (ic[0] == "A") {
@@ -54,7 +55,8 @@ function ShowMoves(from) {
             var mn = wbchars[wbchars.indexOf(ic[0])] + (Number(ic[1]) - 1);
 
             if (Number(ic[1]) == 1) {
-                console.log("W");
+                bw += 1;
+                console.log("Black Wins: " + bw);
             }
             
             if (ic[0] == "A") {
@@ -131,6 +133,8 @@ const wchars = ["A",  "C",  "E",  "G"];
 const bchars = ["B", "D", "F", "H"];
 const wbchars = ["A", "B", "C", "D", "E", "F", "G", "H"];
 let counter = 1;
+var ww = 0;
+var bw = 0;
 
 do {
     if (counter %2 != 0) {
