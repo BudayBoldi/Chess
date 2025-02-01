@@ -1,5 +1,6 @@
 function ShowMoves(from) {
     x = document.getElementById(from);
+    console.log(x);
 
     switch (x.innerHTML) {
         case '♙':
@@ -9,6 +10,7 @@ function ShowMoves(from) {
             var ic = from.split(/(\d+)/);
             var mp = wbchars[wbchars.indexOf(ic[0]) + 1] + (Number(ic[1]) + 1);
             var mm = wbchars[wbchars.indexOf(ic[0]) - 1] + (Number(ic[1]) + 1);
+            var mn = wbchars[wbchars.indexOf(ic[0])] + (Number(ic[1]) + 1);
 
             if (ic[0] == "A") {
                 if (!document.getElementById(mp).innerHTML == "") {
@@ -31,6 +33,9 @@ function ShowMoves(from) {
                 if (!((Number(ic[1]) + i) > 8)) {
                     layout[name]['move'].push(ic[0] + (Number(ic[1]) + i));
                 }
+            	if (!document.getElementById(mn).innerHTML == "") {
+            		layout[name]['move'].splice(layout[name]['move'].indexOf(mn), 1);
+            	}
             }
             HighLight(layout[name]['move']);
             break;
@@ -41,6 +46,7 @@ function ShowMoves(from) {
             var ic = from.split(/(\d+)/);
             var mp = wbchars[wbchars.indexOf(ic[0]) + 1] + (Number(ic[1]) - 1);
             var mm = wbchars[wbchars.indexOf(ic[0]) - 1] + (Number(ic[1]) - 1);
+            var mn = wbchars[wbchars.indexOf(ic[0])] + (Number(ic[1]) - 1);
             
             if (ic[0] == "A") {
                 if (!document.getElementById(mp).innerHTML == "") {
@@ -63,6 +69,9 @@ function ShowMoves(from) {
                 if (!((Number(ic[1]) + i) < 1)) {
                     layout[name]['move'].push(ic[0] + (Number(ic[1]) + i));
                 }
+            	if (!document.getElementById(mn).innerHTML == "") {
+            		layout[name]['move'].splice(layout[name]['move'].indexOf(mn), 1);
+            	}
             }
             HighLight(layout[name]['move']);
             break;
@@ -91,6 +100,7 @@ function ShowMoves(from) {
             console.log(layout[name]['char']);
             break;
         default:
+        	console.log("Err");
             break;
     }
 }
@@ -169,7 +179,7 @@ function HighLight(arr) {
         document.getElementById(item).onclick = function () { Clicked(this.id) };
         setTimeout(() => {
             document.getElementById(item).style.backgroundColor = ogbg;
-            document.getElementById(item).onclick = function () { };
+            document.getElementById(item).onclick = function () { ShowMoves(this.id) };
         }, 2500);
     });
 }
