@@ -12,8 +12,7 @@ function ShowMoves(from) {
             var mn = wbchars[wbchars.indexOf(ic[0])] + (Number(ic[1]) + 1);
 
             if (Number(ic[1]) == 8) {
-                ww += 1;
-                console.log("White Wins: " + ww);
+                console.log("White Choose Turn!");
             }
 
             if (ic[0] == "A") {
@@ -55,8 +54,7 @@ function ShowMoves(from) {
             var mn = wbchars[wbchars.indexOf(ic[0])] + (Number(ic[1]) - 1);
 
             if (Number(ic[1]) == 1) {
-                bw += 1;
-                console.log("Black Wins: " + bw);
+                console.log("Black Choose Turn!");
             }
             
             if (ic[0] == "A") {
@@ -200,6 +198,22 @@ function HighLight(arr) {
 }
 
 function Clicked(to) {
+    if (document.getElementById(to).innerHTML == "♙") {
+        bw += 1;
+        console.log("Black Wins: " + bw);
+        if (bw == 8) {
+            console.log("Big Black Win!");
+        }
+    }
+
+    if (document.getElementById(to).innerHTML == "♟") {
+        ww += 1;
+        console.log("White Wins: " + ww);
+        if (ww == 8) {
+            console.log("Big White Win!");
+        }
+    }
+
     document.getElementById(to).innerHTML = x.innerHTML;
     x.innerHTML = "";
 }
