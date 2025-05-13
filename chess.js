@@ -110,6 +110,22 @@ function ShowMoves(from) {
             var name = "BN";
             console.log(layout[name]['char']);
             break;
+        case '♕':
+            var name = "WK";
+            console.log(layout[name]['char']);
+            break;
+        case '♛':
+            var name = "BK";
+            console.log(layout[name]['char']);
+            break;
+        case '♔':
+            var name = "WQ";
+            console.log(layout[name]['char']);
+            break;
+        case '♚':
+            var name = "BQ";
+            console.log(layout[name]['char']);
+            break;
         default:
         	console.log("?");
             break;
@@ -117,14 +133,18 @@ function ShowMoves(from) {
 }
 
 const layout = {
-    'WP': {'char':'&#9817;','start':["A2","B2","C2","D2","E2","F2","G2","H2"], 'move':[]}, 
-    'BP': {'char':'&#9823;','start':["A7","B7","C7","D7","E7","F7","G7","H7"], 'move':[]}, 
-    'WR': {'char':'&#9814;','start':[], 'move':[]}, 
-    'BR': {'char':'&#9820;','start':[], 'move':[]}, 
-    'WB': {'char':'&#9815;','start':[], 'move':[]}, 
-    'BB': {'char':'&#9821;','start':[], 'move':[]}, 
-    'WN': {'char':'&#9816;','start':[], 'move':[]}, 
-    'BN': {'char':'&#9822;','start':[], 'move':[]}
+    'WP': {'char':'♙','start':["A2","B2","C2","D2","E2","F2","G2","H2"], 'move':[]}, 
+    'BP': {'char':'♟','start':["A7","B7","C7","D7","E7","F7","G7","H7"], 'move':[]}, 
+    'WR': {'char':'♖','start':["A1", "H1"], 'move':[]}, 
+    'BR': {'char':'♜','start':["A8", "H8"], 'move':[]}, 
+    'WB': {'char':'♗','start':["C1", "F1"], 'move':[]}, 
+    'BB': {'char':'♝','start':["C8", "F8"], 'move':[]}, 
+    'WN': {'char':'♘','start':["B1", "G1"], 'move':[]}, 
+    'BN': {'char':'♞','start':["B8", "G8"], 'move':[]},
+    'WK': {'char':'♕','start':["D1"], 'move':[]},
+    'BK': {'char':'♛','start':["D8"], 'move':[]},
+    'WQ': {'char':'♔','start':["E1"], 'move':[]},
+    'BQ': {'char':'♚','start':["E8"], 'move':[]},
 };
 const objKeys = Object.keys(layout);
 const wchars = ["A",  "C",  "E",  "G"];
@@ -198,7 +218,7 @@ function HighLight(arr) {
 }
 
 function Clicked(to) {
-    if (document.getElementById(to).innerHTML == "♙") {
+    if (["♙", "♖", "♗", "♘"].includes(document.getElementById(to).innerHTML)) {
         bw += 1;
         console.log("Black Wins: " + bw);
         if (bw == 8) {
@@ -206,7 +226,7 @@ function Clicked(to) {
         }
     }
 
-    if (document.getElementById(to).innerHTML == "♟") {
+    if (["♟", "♜", "♝", "♞"].includes(document.getElementById(to).innerHTML)) {
         ww += 1;
         console.log("White Wins: " + ww);
         if (ww == 8) {
