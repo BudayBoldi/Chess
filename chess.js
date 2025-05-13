@@ -38,7 +38,10 @@ function ShowMoves(from) {
                 } 
 
             	if (!document.getElementById(mn).innerHTML == "") {
-            		layout[name]['move'].splice(layout[name]['move'].indexOf(mn), 1);
+                    let index = layout[name]['move'].indexOf(mn);
+                    if (index !== -1) {
+                        layout[name]['move'].splice(index, 1);
+                    }
             	}
             }
 
@@ -73,15 +76,19 @@ function ShowMoves(from) {
                     layout[name]['move'].push(mm);
                 }
             }
+
+
             
             for (let i = -1; i >= -2; i--) {
                 if (!((Number(ic[1]) + i) < 1)) {
                     layout[name]['move'].push(ic[0] + (Number(ic[1]) + i));
-                } 
-
-            	if (!document.getElementById(mn).innerHTML == "") {
-            		layout[name]['move'].splice(layout[name]['move'].indexOf(mn), 1);
-            	}
+                }
+                if (!document.getElementById(mn).innerHTML == "") {
+                    let index = layout[name]['move'].indexOf(mn);
+                    if (index !== -1) {
+                        layout[name]['move'].splice(index, 1);
+                    }
+                }
             }
 
             HighLight(layout[name]['move']);
@@ -111,19 +118,19 @@ function ShowMoves(from) {
             console.log(layout[name]['char']);
             break;
         case '♕':
-            var name = "WK";
-            console.log(layout[name]['char']);
-            break;
-        case '♛':
-            var name = "BK";
-            console.log(layout[name]['char']);
-            break;
-        case '♔':
             var name = "WQ";
             console.log(layout[name]['char']);
             break;
-        case '♚':
+        case '♛':
             var name = "BQ";
+            console.log(layout[name]['char']);
+            break;
+        case '♔':
+            var name = "WK";
+            console.log(layout[name]['char']);
+            break;
+        case '♚':
+            var name = "BK";
             console.log(layout[name]['char']);
             break;
         default:
@@ -141,10 +148,10 @@ const layout = {
     'BB': {'char':'♝','start':["C8", "F8"], 'move':[]}, 
     'WN': {'char':'♘','start':["B1", "G1"], 'move':[]}, 
     'BN': {'char':'♞','start':["B8", "G8"], 'move':[]},
-    'WK': {'char':'♕','start':["D1"], 'move':[]},
-    'BK': {'char':'♛','start':["D8"], 'move':[]},
-    'WQ': {'char':'♔','start':["E1"], 'move':[]},
-    'BQ': {'char':'♚','start':["E8"], 'move':[]},
+    'WQ': {'char':'♕','start':["D1"], 'move':[]},
+    'BQ': {'char':'♛','start':["D8"], 'move':[]},
+    'WK': {'char':'♔','start':["E1"], 'move':[]},
+    'BK': {'char':'♚','start':["E8"], 'move':[]},
 };
 const objKeys = Object.keys(layout);
 const wchars = ["A",  "C",  "E",  "G"];
