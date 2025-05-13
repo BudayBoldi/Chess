@@ -218,18 +218,18 @@ function HighLight(arr) {
 }
 
 function Clicked(to) {
-    if (["♙", "♖", "♗", "♘"].includes(document.getElementById(to).innerHTML)) {
+    if (["♙", "♖", "♗", "♘", "♕", "♔"].includes(document.getElementById(to).innerHTML)) {
         bw += 1;
         console.log("Black Wins: " + bw);
-        if (bw == 8) {
+        if (bw == 16) {
             console.log("Big Black Win!");
         }
     }
 
-    if (["♟", "♜", "♝", "♞"].includes(document.getElementById(to).innerHTML)) {
+    if (["♟", "♜", "♝", "♞", "♛", "♚"].includes(document.getElementById(to).innerHTML)) {
         ww += 1;
         console.log("White Wins: " + ww);
-        if (ww == 8) {
+        if (ww == 16) {
             console.log("Big White Win!");
         }
     }
