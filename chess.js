@@ -76,13 +76,12 @@ function ShowMoves(from) {
                     layout[name]['move'].push(mm);
                 }
             }
-
-
             
             for (let i = -1; i >= -2; i--) {
                 if (!((Number(ic[1]) + i) < 1)) {
                     layout[name]['move'].push(ic[0] + (Number(ic[1]) + i));
                 }
+
                 if (!document.getElementById(mn).innerHTML == "") {
                     let index = layout[name]['move'].indexOf(mn);
                     if (index !== -1) {
@@ -100,6 +99,14 @@ function ShowMoves(from) {
         case '♜':
             var name = "BR";
             console.log(layout[name]['char']);
+            break;
+        case '♖<sub>+1</sub>':
+            var name = "WR";
+            console.log("♖ +1hp");
+            break;
+        case '♜<sub>+1</sub>':
+            var name = "BR";
+            console.log("♜ +1hp");
             break;
         case '♗':
             var name = "WB";
@@ -142,8 +149,8 @@ function ShowMoves(from) {
 const layout = {
     'WP': {'char':'♙','start':["A2","B2","C2","D2","E2","F2","G2","H2"], 'move':[]}, 
     'BP': {'char':'♟','start':["A7","B7","C7","D7","E7","F7","G7","H7"], 'move':[]}, 
-    'WR': {'char':'♖','start':["A1", "H1"], 'move':[]}, 
-    'BR': {'char':'♜','start':["A8", "H8"], 'move':[]}, 
+    'WR': {'char':'♖<sub>+1</sub>','start':["A1", "H1"], 'move':[]}, 
+    'BR': {'char':'♜<sub>+1</sub>','start':["A8", "H8"], 'move':[]}, 
     'WB': {'char':'♗','start':["C1", "F1"], 'move':[]}, 
     'BB': {'char':'♝','start':["C8", "F8"], 'move':[]}, 
     'WN': {'char':'♘','start':["B1", "G1"], 'move':[]}, 
@@ -220,7 +227,7 @@ function HighLight(arr) {
         setTimeout(() => {
             document.getElementById(item).style.backgroundColor = ogbg;
             document.getElementById(item).onclick = function () { ShowMoves(this.id) };
-        }, 2500);
+        }, 2000);
     });
 }
 
@@ -241,6 +248,14 @@ function Clicked(to) {
         }
     }
 
-    document.getElementById(to).innerHTML = x.innerHTML;
-    x.innerHTML = "";
+    if (document.getElementById(to).innerHTML == "♖<sub>+1</sub>") {
+        document.getElementById(to).innerHTML = "♖";
+        x.innerHTML = "";
+    } else if (document.getElementById(to).innerHTML == "♜<sub>+1</sub>") {
+        document.getElementById(to).innerHTML = "♜";
+        x.innerHTML = "";
+    } else {
+        document.getElementById(to).innerHTML = x.innerHTML;
+        x.innerHTML = "";
+    }
 }
