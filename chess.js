@@ -232,18 +232,24 @@ function HighLight(arr) {
 }
 
 function Clicked(to) {
-    if (["♙", "♖", "♗", "♘", "♕", "♔"].includes(document.getElementById(to).innerHTML)) {
+    if (["♙", "♖", "♗", "♘", "♔"].includes(document.getElementById(to).innerHTML)) {
         bw += 1;
         console.log("Black Wins: " + bw);
-        if (bw == 16) {
+    }
+
+    if (["♟", "♜", "♝", "♞", "♚"].includes(document.getElementById(to).innerHTML)) {
+        ww += 1;
+        console.log("White Wins: " + ww);
+    }
+
+    if (bw >= 15) {
+        if (document.getElementById(to).innerHTML == "♕") {
             console.log("Big Black Win!");
         }
     }
 
-    if (["♟", "♜", "♝", "♞", "♛", "♚"].includes(document.getElementById(to).innerHTML)) {
-        ww += 1;
-        console.log("White Wins: " + ww);
-        if (ww == 16) {
+    if (ww >= 15) {
+        if (document.getElementById(to).innerHTML == "♛") {
             console.log("Big White Win!");
         }
     }
@@ -254,7 +260,14 @@ function Clicked(to) {
     } else if (document.getElementById(to).innerHTML == "♜<sub>+1</sub>") {
         document.getElementById(to).innerHTML = "♜";
         x.innerHTML = "";
-    } else {
+    } else if (document.getElementById(to).innerHTML == "♕" && bw < 15) {
+        console.log("Such a waste ...");
+        x.innerHTML = "";
+    } else if (document.getElementById(to).innerHTML == "♛" && ww < 15) {
+        console.log("Such a waste ...");
+        x.innerHTML = "";
+    } 
+    else {
         document.getElementById(to).innerHTML = x.innerHTML;
         x.innerHTML = "";
     }
