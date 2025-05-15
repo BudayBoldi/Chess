@@ -103,7 +103,6 @@ function ShowMoves(from) {
                 do {
                     var ml = wbchars[wbchars.indexOf(ic[0]) - ipp] + ic[1];
                     layout[name]['move'].push(ml);
-                    console.log(ml);
                     ipp++;
                 } while ((wbchars[wbchars.indexOf(ic[0]) - ipp] != undefined && document.getElementById(ml).innerHTML == ""));
             }
@@ -113,7 +112,6 @@ function ShowMoves(from) {
                 do {
                     var mr = wbchars[wbchars.indexOf(ic[0]) + imm] + ic[1];
                     layout[name]['move'].push(mr);
-                    console.log(mr);
                     imm++;
                 } while ((wbchars[wbchars.indexOf(ic[0]) + imm] != undefined && document.getElementById(mr).innerHTML == ""));
             }
@@ -149,7 +147,6 @@ function ShowMoves(from) {
                 do {
                     var ml = wbchars[wbchars.indexOf(ic[0]) - ipp] + ic[1];
                     layout[name]['move'].push(ml);
-                    console.log(ml);
                     ipp++;
                 } while ((wbchars[wbchars.indexOf(ic[0]) - ipp] != undefined && document.getElementById(ml).innerHTML == ""));
             }
@@ -159,7 +156,6 @@ function ShowMoves(from) {
                 do {
                     var mr = wbchars[wbchars.indexOf(ic[0]) + imm] + ic[1];
                     layout[name]['move'].push(mr);
-                    console.log(mr);
                     imm++;
                 } while ((wbchars[wbchars.indexOf(ic[0]) + imm] != undefined && document.getElementById(mr).innerHTML == ""));
             }
@@ -195,7 +191,6 @@ function ShowMoves(from) {
                 do {
                     var ml = wbchars[wbchars.indexOf(ic[0]) - ipp] + ic[1];
                     layout[name]['move'].push(ml);
-                    console.log(ml);
                     ipp++;
                 } while ((wbchars[wbchars.indexOf(ic[0]) - ipp] != undefined && document.getElementById(ml).innerHTML == ""));
             }
@@ -205,7 +200,6 @@ function ShowMoves(from) {
                 do {
                     var mr = wbchars[wbchars.indexOf(ic[0]) + imm] + ic[1];
                     layout[name]['move'].push(mr);
-                    console.log(mr);
                     imm++;
                 } while ((wbchars[wbchars.indexOf(ic[0]) + imm] != undefined && document.getElementById(mr).innerHTML == ""));
             }
@@ -241,7 +235,6 @@ function ShowMoves(from) {
                 do {
                     var ml = wbchars[wbchars.indexOf(ic[0]) - ipp] + ic[1];
                     layout[name]['move'].push(ml);
-                    console.log(ml);
                     ipp++;
                 } while ((wbchars[wbchars.indexOf(ic[0]) - ipp] != undefined && document.getElementById(ml).innerHTML == ""));
             }
@@ -251,7 +244,6 @@ function ShowMoves(from) {
                 do {
                     var mr = wbchars[wbchars.indexOf(ic[0]) + imm] + ic[1];
                     layout[name]['move'].push(mr);
-                    console.log(mr);
                     imm++;
                 } while ((wbchars[wbchars.indexOf(ic[0]) + imm] != undefined && document.getElementById(mr).innerHTML == ""));
             }
@@ -279,10 +271,126 @@ function ShowMoves(from) {
         case '♗':
             var name = "WB";
             console.log(layout[name]['char']);
+            layout[name]['move'] = [];
+            var ic = from.split(/(\d+)/);
+
+            if (ic[1] != "8") {
+                var ip = 1;
+                var ipp = 1;
+
+                do {
+                    var mmb = wbchars[wbchars.indexOf(ic[0]) - ip] + (Number(ic[1]) + ip);
+                    if (document.getElementById(mmb) == null) { break; }
+
+                    if (ic[0] != "A") {
+                        layout[name]['move'].push(mmb);
+                    }
+
+                    ip++;
+                } while (ip < 5);
+
+                do {
+                    var mpb = wbchars[wbchars.indexOf(ic[0]) + ipp] + (Number(ic[1]) + ipp);
+                    if (document.getElementById(mpb) == null) { break; }
+
+                    if (ic[0] != "H") {
+                        layout[name]['move'].push(mpb);
+                    }
+
+                    ipp++;
+                } while (ipp < 5);
+            }
+
+            if (ic[1] != "1") {
+                var im = 1;
+                var imm = 1;
+
+                do {
+                    var mm = wbchars[wbchars.indexOf(ic[0]) - im] + (Number(ic[1]) - im);
+                    if (document.getElementById(mm) == null) { break; }
+
+                    if (ic[0] != "A") {
+                        layout[name]['move'].push(mm);
+                    }
+
+                    im++;
+                } while (im < 5);
+
+                do {
+                    var mp = wbchars[wbchars.indexOf(ic[0]) + imm] + (Number(ic[1]) - imm);
+                    if (document.getElementById(mp) == null) { break; }
+
+                    if (ic[0] != "H") {
+                        layout[name]['move'].push(mp);
+                    }
+
+                    imm++;
+                } while (imm < 5);
+            }
+
+            HighLight(layout[name]['move']);
             break;
         case '♝':
             var name = "BB";
             console.log(layout[name]['char']);
+            layout[name]['move'] = [];
+            var ic = from.split(/(\d+)/);
+
+            if (ic[1] != "1") {
+                var im = 1;
+                var imm = 1;
+
+                do {
+                    var mm = wbchars[wbchars.indexOf(ic[0]) - im] + (Number(ic[1]) - im);
+                    if (document.getElementById(mm) == null) { break; }
+
+                    if (ic[0] != "A") {
+                        layout[name]['move'].push(mm);
+                    }
+
+                    im++;
+                } while (im < 5);
+
+                do {
+                    var mp = wbchars[wbchars.indexOf(ic[0]) + imm] + (Number(ic[1]) - imm);
+                    if (document.getElementById(mp) == null) { break; }
+
+                    if (ic[0] != "H") {
+                        layout[name]['move'].push(mp);
+                    }
+
+                    imm++;
+                } while (imm < 5);
+            }
+
+            if (ic[1] != "8") {
+                var ip = 1;
+                var ipp = 1;
+
+                do {
+                    var mmb = wbchars[wbchars.indexOf(ic[0]) - ip] + (Number(ic[1]) + ip);
+                    if (document.getElementById(mmb) == null) { break; }
+
+                    if (ic[0] != "A") {
+                        layout[name]['move'].push(mmb);
+                    }
+
+                    ip++;
+                } while (ip < 5);
+
+                do {
+                    var mpb = wbchars[wbchars.indexOf(ic[0]) + ipp] + (Number(ic[1]) + ipp);
+                    if (document.getElementById(mpb) == null) { break; }
+
+                    if (ic[0] != "H") {
+                        layout[name]['move'].push(mpb);
+                    }
+
+                    ipp++;
+                } while (ipp < 5);
+            }
+
+            HighLight(layout[name]['move']);
             break;
         case '♘':
             var name = "WN";
