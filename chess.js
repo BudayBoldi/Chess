@@ -9,7 +9,7 @@ function ShowMoves(from) {
             var ic = from.split(/(\d+)/);
             var mp = wbchars[wbchars.indexOf(ic[0]) + 1] + (Number(ic[1]) + 1);
             var mm = wbchars[wbchars.indexOf(ic[0]) - 1] + (Number(ic[1]) + 1);
-            var mn = wbchars[wbchars.indexOf(ic[0])] + (Number(ic[1]) + 1);
+            var mn = ic[0] + (Number(ic[1]) + 1);
 
             if (Number(ic[1]) == 8) {
                 console.log("White Choose Turn!");
@@ -54,7 +54,7 @@ function ShowMoves(from) {
             var ic = from.split(/(\d+)/);
             var mp = wbchars[wbchars.indexOf(ic[0]) + 1] + (Number(ic[1]) - 1);
             var mm = wbchars[wbchars.indexOf(ic[0]) - 1] + (Number(ic[1]) - 1);
-            var mn = wbchars[wbchars.indexOf(ic[0])] + (Number(ic[1]) - 1);
+            var mn = ic[0] + (Number(ic[1]) - 1);
 
             if (Number(ic[1]) == 1) {
                 console.log("Black Choose Turn!");
@@ -103,6 +103,48 @@ function ShowMoves(from) {
         case '♖<sub>+1</sub>':
             var name = "WR";
             console.log("♖ +1hp");
+            layout[name]['move'] = [];
+            var ic = from.split(/(\d+)/);
+
+            if (ic[0] != "A") {
+                var ipp = 1;
+                do {
+                    var ml = wbchars[wbchars.indexOf(ic[0]) - ipp] + ic[1];
+                    layout[name]['move'].push(ml);
+                    console.log(ml);
+                    ipp++;
+                } while ((wbchars[wbchars.indexOf(ic[0]) - ipp] != undefined && document.getElementById(ml).innerHTML == ""));
+            }
+
+            if (ic[0] != "H") {
+                var imm = 1;
+                do {
+                    var mr = wbchars[wbchars.indexOf(ic[0]) + imm] + ic[1];
+                    layout[name]['move'].push(mr);
+                    console.log(mr);
+                    imm++;
+                } while ((wbchars[wbchars.indexOf(ic[0]) + imm] != undefined && document.getElementById(mr).innerHTML == ""));
+            }
+
+            if (ic[1] != "8") {
+                var ip = 1;
+                do {
+                    var mf = ic[0] + (Number(ic[1]) + ip);
+                    layout[name]['move'].push(mf);
+                    ip++;
+                } while ((document.getElementById(mf) && document.getElementById(mf).innerHTML == ""));
+            }
+
+            if (ic[1] != "1") {
+                var im = 1;
+                do {
+                    var mb = ic[0] + (Number(ic[1]) - im);
+                    layout[name]['move'].push(mb);
+                    im++;
+                } while ((document.getElementById(mb) && document.getElementById(mb).innerHTML == ""));
+            }
+
+            HighLight(layout[name]['move']);
             break;
         case '♜<sub>+1</sub>':
             var name = "BR";
@@ -147,7 +189,7 @@ function ShowMoves(from) {
 }
 
 const layout = {
-    'WP': {'char':'♙','start':["A2","B2","C2","D2","E2","F2","G2","H2"], 'move':[]}, 
+    'WP': {'char':'♙','start':["B2","C2","D2","E2","F2","G2","H2"], 'move':[]}, 
     'BP': {'char':'♟','start':["A7","B7","C7","D7","E7","F7","G7","H7"], 'move':[]}, 
     'WR': {'char':'♖<sub>+1</sub>','start':["A1", "H1"], 'move':[]}, 
     'BR': {'char':'♜<sub>+1</sub>','start':["A8", "H8"], 'move':[]}, 
