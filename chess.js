@@ -102,36 +102,40 @@ function ShowMoves(from) {
                 var ipp = 1;
                 do {
                     var ml = wbchars[wbchars.indexOf(ic[0]) - ipp] + ic[1];
+                    if (document.getElementById(ml) == null) { break; }
                     layout[name]['move'].push(ml);
                     ipp++;
-                } while ((wbchars[wbchars.indexOf(ic[0]) - ipp] != undefined && document.getElementById(ml).innerHTML == ""));
+                } while ((document.getElementById(ml).innerHTML == ""));
             }
 
             if (ic[0] != "H") {
                 var imm = 1;
                 do {
                     var mr = wbchars[wbchars.indexOf(ic[0]) + imm] + ic[1];
+                    if (document.getElementById(mr) == null) { break; }
                     layout[name]['move'].push(mr);
                     imm++;
-                } while ((wbchars[wbchars.indexOf(ic[0]) + imm] != undefined && document.getElementById(mr).innerHTML == ""));
+                } while ((document.getElementById(mr).innerHTML == ""));
             }
 
             if (ic[1] != "8") {
                 var ip = 1;
                 do {
                     var mf = ic[0] + (Number(ic[1]) + ip);
+                    if (document.getElementById(mf) == null) { break; }
                     layout[name]['move'].push(mf);
                     ip++;
-                } while ((document.getElementById(mf) && document.getElementById(mf).innerHTML == ""));
+                } while ((document.getElementById(mf).innerHTML == ""));
             }
 
             if (ic[1] != "1") {
                 var im = 1;
                 do {
                     var mb = ic[0] + (Number(ic[1]) - im);
+                    if (document.getElementById(mb) == null) { break; }
                     layout[name]['move'].push(mb);
                     im++;
-                } while ((document.getElementById(mb) && document.getElementById(mb).innerHTML == ""));
+                } while ((document.getElementById(mb).innerHTML == ""));
             }
 
             HighLight(layout[name]['move']);
@@ -146,36 +150,40 @@ function ShowMoves(from) {
                 var ipp = 1;
                 do {
                     var ml = wbchars[wbchars.indexOf(ic[0]) - ipp] + ic[1];
+                    if (document.getElementById(ml) == null) { break; }
                     layout[name]['move'].push(ml);
                     ipp++;
-                } while ((wbchars[wbchars.indexOf(ic[0]) - ipp] != undefined && document.getElementById(ml).innerHTML == ""));
+                } while ((document.getElementById(ml).innerHTML == ""));
             }
 
             if (ic[0] != "H") {
                 var imm = 1;
                 do {
                     var mr = wbchars[wbchars.indexOf(ic[0]) + imm] + ic[1];
+                    if (document.getElementById(mr) == null) { break; }
                     layout[name]['move'].push(mr);
                     imm++;
-                } while ((wbchars[wbchars.indexOf(ic[0]) + imm] != undefined && document.getElementById(mr).innerHTML == ""));
+                } while ((document.getElementById(mr).innerHTML == ""));
             }
 
             if (ic[1] != "1") {
                 var im = 1;
                 do {
                     var mb = ic[0] + (Number(ic[1]) - im);
+                    if (document.getElementById(mb) == null) { break; }
                     layout[name]['move'].push(mb);
                     im++;
-                } while ((document.getElementById(mb) && document.getElementById(mb).innerHTML == ""));
+                } while ((document.getElementById(mb).innerHTML == ""));
             }
 
             if (ic[1] != "8") {
                 var ip = 1;
                 do {
                     var mf = ic[0] + (Number(ic[1]) + ip);
+                    if (document.getElementById(mf) == null) { break; }
                     layout[name]['move'].push(mf);
                     ip++;
-                } while ((document.getElementById(mf) && document.getElementById(mf).innerHTML == ""));
+                } while ((document.getElementById(mf).innerHTML == ""));
             }
 
             HighLight(layout[name]['move']);
@@ -190,36 +198,40 @@ function ShowMoves(from) {
                 var ipp = 1;
                 do {
                     var ml = wbchars[wbchars.indexOf(ic[0]) - ipp] + ic[1];
+                    if (document.getElementById(ml) == null) { break; }
                     layout[name]['move'].push(ml);
                     ipp++;
-                } while ((wbchars[wbchars.indexOf(ic[0]) - ipp] != undefined && document.getElementById(ml).innerHTML == ""));
+                } while ((document.getElementById(ml).innerHTML == ""));
             }
 
             if (ic[0] != "H") {
                 var imm = 1;
                 do {
                     var mr = wbchars[wbchars.indexOf(ic[0]) + imm] + ic[1];
+                    if (document.getElementById(mr) == null) { break; }
                     layout[name]['move'].push(mr);
                     imm++;
-                } while ((wbchars[wbchars.indexOf(ic[0]) + imm] != undefined && document.getElementById(mr).innerHTML == ""));
+                } while ((document.getElementById(mr).innerHTML == ""));
             }
 
             if (ic[1] != "8") {
                 var ip = 1;
                 do {
                     var mf = ic[0] + (Number(ic[1]) + ip);
+                    if (document.getElementById(mf) == null) { break; }
                     layout[name]['move'].push(mf);
                     ip++;
-                } while ((document.getElementById(mf) && document.getElementById(mf).innerHTML == ""));
+                } while ((document.getElementById(mf).innerHTML == ""));
             }
 
             if (ic[1] != "1") {
                 var im = 1;
                 do {
                     var mb = ic[0] + (Number(ic[1]) - im);
+                    if (document.getElementById(mb) == null) { break; }
                     layout[name]['move'].push(mb);
                     im++;
-                } while ((document.getElementById(mb) && document.getElementById(mb).innerHTML == ""));
+                } while ((document.getElementById(mb).innerHTML == ""));
             }
 
             HighLight(layout[name]['move']);
@@ -234,36 +246,40 @@ function ShowMoves(from) {
                 var ipp = 1;
                 do {
                     var ml = wbchars[wbchars.indexOf(ic[0]) - ipp] + ic[1];
+                    if (document.getElementById(ml) == null) { break; }
                     layout[name]['move'].push(ml);
                     ipp++;
-                } while ((wbchars[wbchars.indexOf(ic[0]) - ipp] != undefined && document.getElementById(ml).innerHTML == ""));
+                } while ((document.getElementById(ml).innerHTML == ""));
             }
 
             if (ic[0] != "H") {
                 var imm = 1;
                 do {
                     var mr = wbchars[wbchars.indexOf(ic[0]) + imm] + ic[1];
+                    if (document.getElementById(mr) == null) { break; }
                     layout[name]['move'].push(mr);
                     imm++;
-                } while ((wbchars[wbchars.indexOf(ic[0]) + imm] != undefined && document.getElementById(mr).innerHTML == ""));
+                } while ((document.getElementById(mr).innerHTML == ""));
             }
 
             if (ic[1] != "1") {
                 var im = 1;
                 do {
                     var mb = ic[0] + (Number(ic[1]) - im);
+                    if (document.getElementById(mb) == null) { break; }
                     layout[name]['move'].push(mb);
                     im++;
-                } while ((document.getElementById(mb) && document.getElementById(mb).innerHTML == ""));
+                } while ((document.getElementById(mb).innerHTML == ""));
             }
 
             if (ic[1] != "8") {
                 var ip = 1;
                 do {
                     var mf = ic[0] + (Number(ic[1]) + ip);
+                    if (document.getElementById(mf) == null) { break; }
                     layout[name]['move'].push(mf);
                     ip++;
-                } while ((document.getElementById(mf) && document.getElementById(mf).innerHTML == ""));
+                } while ((document.getElementById(mf).innerHTML == ""));
             }
 
             HighLight(layout[name]['move']);
