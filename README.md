@@ -1,5 +1,3 @@
-# Its Chess, but in my way.
-
 Your goal is to kill 16 soldiers (basicly a whole army) to get the big win.
 You can also kill your soldiers to achieve your goal.
 
