@@ -12,7 +12,7 @@ function ShowMoves(from) {
             var mn = ic[0] + (Number(ic[1]) + 1);
 
             if (Number(ic[1]) == 8) {
-                console.log("White Choose Turn!");
+                console.log("RIP");
             }
 
             if (ic[0] == "A") {
@@ -57,7 +57,7 @@ function ShowMoves(from) {
             var mn = ic[0] + (Number(ic[1]) - 1);
 
             if (Number(ic[1]) == 1) {
-                console.log("Black Choose Turn!");
+                console.log("RIP");
             }
             
             if (ic[0] == "A") {
@@ -395,26 +395,188 @@ function ShowMoves(from) {
         case '♘':
             var name = "WN";
             console.log(layout[name]['char']);
+            layout[name]['move'] = [];
+            var ic = from.split(/(\d+)/);
+            var mp = wbchars[wbchars.indexOf(ic[0]) + 1] + (Number(ic[1]) + 1);
+            var mm = wbchars[wbchars.indexOf(ic[0]) - 1] + (Number(ic[1]) + 1);
+            var mpb = wbchars[wbchars.indexOf(ic[0]) + 1] + (Number(ic[1]) - 1);
+            var mmb = wbchars[wbchars.indexOf(ic[0]) - 1] + (Number(ic[1]) - 1);
+            var mn = ic[0] + (Number(ic[1]) + 1);
+            var mnb = ic[0] + (Number(ic[1]) - 1);
+            var mbp = wbchars[wbchars.indexOf(ic[0]) + 1] + ic[1];
+            var mbm = wbchars[wbchars.indexOf(ic[0]) - 1] + ic[1];
+
+            if (ic[1] == "1") {
+                if (ic[0] == "A") {
+                    layout[name]['move'].push(mp);
+                    layout[name]['move'].push(mn);
+                    layout[name]['move'].push(mbp);
+                } else if (ic[0] == "H") {
+                    layout[name]['move'].push(mm);
+                    layout[name]['move'].push(mn);
+                    layout[name]['move'].push(mbm);
+                } else {
+                    layout[name]['move'].push(mp);
+                    layout[name]['move'].push(mm);
+                    layout[name]['move'].push(mn);
+                    layout[name]['move'].push(mbp);
+                    layout[name]['move'].push(mbm);
+                }
+            } else if (ic[1] == "8") {
+                if (ic[0] == "A") {
+                    layout[name]['move'].push(mpb);
+                    layout[name]['move'].push(mnb);
+                    layout[name]['move'].push(mbp);
+                } else if (ic[0] == "H") {
+                    layout[name]['move'].push(mmb);
+                    layout[name]['move'].push(mnb);
+                    layout[name]['move'].push(mbm);
+                } else {
+                    layout[name]['move'].push(mpb);
+                    layout[name]['move'].push(mmb);
+                    layout[name]['move'].push(mnb);
+                    layout[name]['move'].push(mbp);
+                    layout[name]['move'].push(mbm);
+                }
+            } else {
+                if (ic[0] == "A") {
+                    layout[name]['move'].push(mp);
+                    layout[name]['move'].push(mn);
+                    layout[name]['move'].push(mpb);
+                    layout[name]['move'].push(mnb);
+                    layout[name]['move'].push(mbp);
+                } else if (ic[0] == "H") {
+                    layout[name]['move'].push(mm);
+                    layout[name]['move'].push(mn);
+                    layout[name]['move'].push(mmb);
+                    layout[name]['move'].push(mnb);
+                    layout[name]['move'].push(mbm);
+                } else {
+                    layout[name]['move'].push(mp);
+                    layout[name]['move'].push(mm);
+                    layout[name]['move'].push(mn);
+                    layout[name]['move'].push(mpb);
+                    layout[name]['move'].push(mmb);
+                    layout[name]['move'].push(mnb);
+                    layout[name]['move'].push(mbp);
+                    layout[name]['move'].push(mbm);
+                }
+            }
+            
+            HighLight(layout[name]['move']);
             break;
         case '♞':
             var name = "BN";
             console.log(layout[name]['char']);
+            layout[name]['move'] = [];
+            var ic = from.split(/(\d+)/);
+            var mp = wbchars[wbchars.indexOf(ic[0]) + 1] + (Number(ic[1]) + 1);
+            var mm = wbchars[wbchars.indexOf(ic[0]) - 1] + (Number(ic[1]) + 1);
+            var mpb = wbchars[wbchars.indexOf(ic[0]) + 1] + (Number(ic[1]) - 1);
+            var mmb = wbchars[wbchars.indexOf(ic[0]) - 1] + (Number(ic[1]) - 1);
+            var mn = ic[0] + (Number(ic[1]) + 1);
+            var mnb = ic[0] + (Number(ic[1]) - 1);
+            var mbp = wbchars[wbchars.indexOf(ic[0]) + 1] + ic[1];
+            var mbm = wbchars[wbchars.indexOf(ic[0]) - 1] + ic[1];
+
+            if (ic[1] == "1") {
+                if (ic[0] == "A") {
+                    layout[name]['move'].push(mp);
+                    layout[name]['move'].push(mn);
+                    layout[name]['move'].push(mbp);
+                } else if (ic[0] == "H") {
+                    layout[name]['move'].push(mm);
+                    layout[name]['move'].push(mn);
+                    layout[name]['move'].push(mbm);
+                } else {
+                    layout[name]['move'].push(mp);
+                    layout[name]['move'].push(mm);
+                    layout[name]['move'].push(mn);
+                    layout[name]['move'].push(mbp);
+                    layout[name]['move'].push(mbm);
+                }
+            } else if (ic[1] == "8") {
+                if (ic[0] == "A") {
+                    layout[name]['move'].push(mpb);
+                    layout[name]['move'].push(mnb);
+                    layout[name]['move'].push(mbp);
+                } else if (ic[0] == "H") {
+                    layout[name]['move'].push(mmb);
+                    layout[name]['move'].push(mnb);
+                    layout[name]['move'].push(mbm);
+                } else {
+                    layout[name]['move'].push(mpb);
+                    layout[name]['move'].push(mmb);
+                    layout[name]['move'].push(mnb);
+                    layout[name]['move'].push(mbp);
+                    layout[name]['move'].push(mbm);
+                }
+            } else {
+                if (ic[0] == "A") {
+                    layout[name]['move'].push(mp);
+                    layout[name]['move'].push(mn);
+                    layout[name]['move'].push(mpb);
+                    layout[name]['move'].push(mnb);
+                    layout[name]['move'].push(mbp);
+                } else if (ic[0] == "H") {
+                    layout[name]['move'].push(mm);
+                    layout[name]['move'].push(mn);
+                    layout[name]['move'].push(mmb);
+                    layout[name]['move'].push(mnb);
+                    layout[name]['move'].push(mbm);
+                } else {
+                    layout[name]['move'].push(mp);
+                    layout[name]['move'].push(mm);
+                    layout[name]['move'].push(mn);
+                    layout[name]['move'].push(mpb);
+                    layout[name]['move'].push(mmb);
+                    layout[name]['move'].push(mnb);
+                    layout[name]['move'].push(mbp);
+                    layout[name]['move'].push(mbm);
+                }
+            }
+
+            HighLight(layout[name]['move']);
             break;
         case '♕':
             var name = "WQ";
             console.log(layout[name]['char']);
+            layout[name]['move'] = [];
+
+            layout[name]['move'].push("D1", "E1");
+
+            HighLight(layout[name]['move']);
             break;
         case '♛':
             var name = "BQ";
             console.log(layout[name]['char']);
+            layout[name]['move'] = [];
+
+            layout[name]['move'].push("D8", "E8");
+
+            HighLight(layout[name]['move']);
             break;
         case '♔':
             var name = "WK";
             console.log(layout[name]['char']);
+            layout[name]['move'] = [];
+
+            lephet.forEach(function(item) {
+                layout[name]['move'].push(item);
+            });
+
+            HighLight(layout[name]['move']);
             break;
         case '♚':
             var name = "BK";
             console.log(layout[name]['char']);
+            layout[name]['move'] = [];
+
+            lephet.forEach(function(item) {
+                layout[name]['move'].push(item);
+            });
+
+            HighLight(layout[name]['move']);
             break;
         default:
         	console.log("?");
@@ -440,6 +602,16 @@ const objKeys = Object.keys(layout);
 const wchars = ["A",  "C",  "E",  "G"];
 const bchars = ["B", "D", "F", "H"];
 const wbchars = ["A", "B", "C", "D", "E", "F", "G", "H"];
+const lephet = [
+    "A1", "B1","C1","D1","E1","F1","G1","H1", 
+    "A2", "B2","C2","D2","E2","F2","G2","H2", 
+    "A3", "B3","C3","D3","E3","F3","G3","H3", 
+    "A4", "B4","C4","D4","E4","F4","G4","H4", 
+    "A5", "B5","C5","D5","E5","F5","G5","H5", 
+    "A6", "B6","C6","D6","E6","F6","G6","H6", 
+    "A7", "B7","C7","D7","E7","F7","G7","H7", 
+    "A8", "B8","C8","D8","E8","F8","G8","H8"
+];
 let counter = 1;
 var ww = 0;
 var bw = 0;
@@ -537,11 +709,15 @@ function Clicked(to) {
         document.getElementById(to).innerHTML = "♜";
         x.innerHTML = "";
     } else if (document.getElementById(to).innerHTML == "♕" && bw < 15) {
-        console.log("Such a waste ...");
-        x.innerHTML = "";
+        if (x.innerHTML != "♕") {
+            console.log("Such a waste ...");
+            x.innerHTML = "";
+        }
     } else if (document.getElementById(to).innerHTML == "♛" && ww < 15) {
-        console.log("Such a waste ...");
-        x.innerHTML = "";
+        if (x.innerHTML != "♛") {
+            console.log("Such a waste ...");
+            x.innerHTML = "";
+        }
     } 
     else {
         document.getElementById(to).innerHTML = x.innerHTML;
