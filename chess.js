@@ -1,6 +1,16 @@
 function ShowMoves(from) {
     x = document.getElementById(from);
 
+    if (turn == "black") {
+        if (["♙", "♖", "♖<sub>+1</sub>", "♗", "♘", "♔", "♕"].includes(x.innerHTML)) {
+            return false;
+        }
+    } else {
+        if (["♟", "♜", "♜<sub>+1</sub>", "♝", "♞", "♚", "♛"].includes(x.innerHTML)) {
+            return false;
+        }
+    }
+
     switch (x.innerHTML) {
         case '♙':
             var name = "WP";
@@ -631,6 +641,7 @@ const lephet = [
 let counter = 1;
 var ww = 0;
 var bw = 0;
+var turn = "black";
 
 do {
     if (counter %2 != 0) {
@@ -738,5 +749,11 @@ function Clicked(to) {
     else {
         document.getElementById(to).innerHTML = x.innerHTML;
         x.innerHTML = "";
+    }
+
+    if (turn == "black") {
+        turn = "white";
+    } else {
+        turn = "black";
     }
 }
