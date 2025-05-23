@@ -733,10 +733,8 @@ function Clicked(to) {
 
     if (document.getElementById(to).innerHTML == "♖<sub>+1</sub>") {
         document.getElementById(to).innerHTML = "♖";
-        x.innerHTML = "";
     } else if (document.getElementById(to).innerHTML == "♜<sub>+1</sub>") {
         document.getElementById(to).innerHTML = "♜";
-        x.innerHTML = "";
     } else if (document.getElementById(to).innerHTML == "♕" && bw < 15) {
         if (x.innerHTML != "♕") {
             console.log("Such a waste ...");
