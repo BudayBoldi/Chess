@@ -700,7 +700,9 @@ function HighLight(arr) {
         document.getElementById(item).style.backgroundColor = "LightBlue";
         document.getElementById(item).onclick = function () { Clicked(this.id) };
         setTimeout(() => {
-            document.getElementById(item).style.backgroundColor = ogbg;
+            if (ogbg != "lightblue") {
+                document.getElementById(item).style.backgroundColor = ogbg;
+            }
             document.getElementById(item).onclick = function () { ShowMoves(this.id) };
         }, 2000);
     });
@@ -745,8 +747,7 @@ function Clicked(to) {
             console.log("Such a waste ...");
             x.innerHTML = "";
         }
-    } 
-    else {
+    } else {
         document.getElementById(to).innerHTML = x.innerHTML;
         x.innerHTML = "";
     }
