@@ -6,8 +6,9 @@
   #chessboard {
     width: 320px;
     height: 320px;
-    margin-top: 7%;
-    zoom: 2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
     border: 10px solid #262626;
   }
   sub {
@@ -94,5 +95,14 @@
 <br />
 </center>
 <script language="JScript" src="./chess.js"></script>
+<script language="JScript">
+const board = document.getElementById("chessboard");
+const scale = Math.min(
+  window.innerWidth / 340,
+  window.innerHeight / 340
+);
+
+board.style.transform = "translate(-50%, -50%) scale(" + scale + ")";
+</script>
 </body>
 </html>
