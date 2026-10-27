@@ -926,7 +926,7 @@ do {
         wchars.forEach(function(item) {
             let wchar = document.getElementById(item + counter);
             wchar.onclick = function () { ShowMoves(this.id) };
-            wchar.style.cssText = "float: left;width: 40px;height: 40px;background-color: #fff;font-size: 25px;text-align: center;display: table-cell;vertical-align: middle";
+            wchar.style.cssText = "float: left;width: 40px;height: 40px;background-color: #d3d7cf;font-size: 25px;text-align: center;display: table-cell;vertical-align: middle";
             objKeys.forEach(function(name) {
                 if (layout[name]['start'].includes(item + counter)) {
                     wchar.innerHTML = layout[name]['char'];
@@ -937,7 +937,7 @@ do {
         bchars.forEach(function(item) {
             let bchar = document.getElementById(item + counter);
             bchar.onclick = function () { ShowMoves(this.id) };
-            bchar.style.cssText = "float: left;width: 40px;height: 40px;background-color: #999;font-size: 25px;text-align: center;display: table-cell;vertical-align: middle";
+            bchar.style.cssText = "float: left;width: 40px;height: 40px;background-color: #75507b;font-size: 25px;text-align: center;display: table-cell;vertical-align: middle";
             objKeys.forEach(function(name) {
                 if (layout[name]['start'].includes(item + counter)) {
                     bchar.innerHTML = layout[name]['char'];
@@ -949,7 +949,7 @@ do {
         wchars.forEach(function(item) {
             let wchar = document.getElementById(item + counter);
             wchar.onclick = function () { ShowMoves(this.id) };
-            wchar.style.cssText = "float: left;width: 40px;height: 40px;background-color: #999;font-size: 25px;text-align: center;display: table-cell;vertical-align: middle";
+            wchar.style.cssText = "float: left;width: 40px;height: 40px;background-color: #75507b;font-size: 25px;text-align: center;display: table-cell;vertical-align: middle";
             objKeys.forEach(function(name) {
                 if (layout[name]['start'].includes(item + counter)) {
                     wchar.innerHTML = layout[name]['char'];
@@ -960,7 +960,7 @@ do {
         bchars.forEach(function(item) {
             let bchar = document.getElementById(item + counter);
             bchar.onclick = function () { ShowMoves(this.id) };
-            bchar.style.cssText = "float: left;width: 40px;height: 40px;background-color: #fff;font-size: 25px;text-align: center;display: table-cell;vertical-align: middle";
+            bchar.style.cssText = "float: left;width: 40px;height: 40px;background-color: #d3d7cf;font-size: 25px;text-align: center;display: table-cell;vertical-align: middle";
             objKeys.forEach(function(name) {
                 if (layout[name]['start'].includes(item + counter)) {
                     bchar.innerHTML = layout[name]['char'];
