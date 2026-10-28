@@ -63,12 +63,13 @@ function ShowMoves(from) {
                     layout[name]['move'].push(mn);
                 }
 
-            	if (document.getElementById(mn) && document.getElementById(mn).innerHTML !== "") {
+                if (document.getElementById(mn) && document.getElementById(mn).innerHTML !== "") {
                     let index = layout[name]['move'].indexOf(mn);
                     if (index !== -1) {
                         layout[name]['move'].splice(index, 1);
                     }
-            	}
+                    break;
+                }
             }
 
             HighLight(layout[name]['move']);
@@ -139,6 +140,7 @@ function ShowMoves(from) {
                     if (index !== -1) {
                         layout[name]['move'].splice(index, 1);
                     }
+                    break;
                 }
             }
 
@@ -451,9 +453,9 @@ function ShowMoves(from) {
                     layout[name]['move'].push(mpb);
                     layout[name]['move'].push(mmb);
                     layout[name]['move'].push(mbp);
+                    layout[name]['move'].push(mbm2);
                     layout[name]['move'].push(mbm);
                     layout[name]['move'].push(mbp2);
-                    layout[name]['move'].push(mbm2);
                 }
             }
             
@@ -545,9 +547,9 @@ function ShowMoves(from) {
                     layout[name]['move'].push(mm);
                     layout[name]['move'].push(mpb);
                     layout[name]['move'].push(mmb);
-                    layout[name]['move'].push(mbp);
                     layout[name]['move'].push(mbm);
                     layout[name]['move'].push(mbp2);
+                    layout[name]['move'].push(mbp);
                     layout[name]['move'].push(mbm2);
                 }
             }
