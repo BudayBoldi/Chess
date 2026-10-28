@@ -989,17 +989,47 @@ do {
 } while(counter != 9);
 
 function HighLight(arr) {
-    arr.forEach(function(item) {
-        let ogbg = document.getElementById(item).style.backgroundColor;
-        document.getElementById(item).style.backgroundColor = "LightBlue";
-        document.getElementById(item).onclick = function () { Clicked(this.id) };
-        setTimeout(() => {
-            if (ogbg != "lightblue") {
-                document.getElementById(item).style.backgroundColor = ogbg;
+    if (["♙", "♖", "♗", "♘", "♔"].includes(x.innerHTML)) {
+        arr.forEach(function(item) {
+            if (!["♙", "♖", "♗", "♘", "♔"].includes(document.getElementById(item).innerHTML)) {
+                let ogbg = document.getElementById(item).style.backgroundColor;
+                document.getElementById(item).style.backgroundColor = "LightBlue";
+                document.getElementById(item).onclick = function () { Clicked(this.id) };
+                setTimeout(() => {
+                    if (ogbg != "lightblue") {
+                        document.getElementById(item).style.backgroundColor = ogbg;
+                    }
+                    document.getElementById(item).onclick = function () { ShowMoves(this.id) };
+                }, 2000);
             }
-            document.getElementById(item).onclick = function () { ShowMoves(this.id) };
-        }, 2000);
-    });
+        });
+    } else if (["♟", "♜", "♝", "♞", "♚"].includes(x.innerHTML)) {
+        arr.forEach(function(item) {
+            if (!["♟", "♜", "♝", "♞", "♚"].includes(document.getElementById(item).innerHTML)) {
+                let ogbg = document.getElementById(item).style.backgroundColor;
+                document.getElementById(item).style.backgroundColor = "LightBlue";
+                document.getElementById(item).onclick = function () { Clicked(this.id) };
+                setTimeout(() => {
+                    if (ogbg != "lightblue") {
+                        document.getElementById(item).style.backgroundColor = ogbg;
+                    }
+                    document.getElementById(item).onclick = function () { ShowMoves(this.id) };
+                }, 2000);
+            }
+        });
+    } else {
+        arr.forEach(function(item) {
+            let ogbg = document.getElementById(item).style.backgroundColor;
+            document.getElementById(item).style.backgroundColor = "LightBlue";
+            document.getElementById(item).onclick = function () { Clicked(this.id) };
+            setTimeout(() => {
+                if (ogbg != "lightblue") {
+                    document.getElementById(item).style.backgroundColor = ogbg;
+                }
+                document.getElementById(item).onclick = function () { ShowMoves(this.id) };
+            }, 2000);
+        });
+    }
 }
 
 function Clicked(to) {
