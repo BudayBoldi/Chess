@@ -380,6 +380,8 @@ function ShowMoves(from) {
             var mbp2 = wbchars[wbchars.indexOf(ic[0]) + 1] + (Number(ic[1]) - 2);
             var mbm2 = wbchars[wbchars.indexOf(ic[0]) - 1] + (Number(ic[1]) + 2);
 
+            // o7
+
             if (ic[1] == "1") {
                 if (ic[0] == "A") {
                     layout[name]['move'].push(mp);
@@ -401,6 +403,33 @@ function ShowMoves(from) {
                     layout[name]['move'].push(mbp);
                     layout[name]['move'].push(mbm2);
                 }
+            } else if (ic[1] == "2") {
+                if (ic[0] == "A") {
+                    layout[name]['move'].push(mp);
+                    layout[name]['move'].push(mpb);
+                    layout[name]['move'].push(mbp);
+                } else if (ic[0] == "B") {
+                    layout[name]['move'].push(mpb);
+                    layout[name]['move'].push(mp);
+                    layout[name]['move'].push(mbp);
+                    layout[name]['move'].push(mbm2);
+                } else if (ic[0] == "H") {
+                    layout[name]['move'].push(mm);
+                    layout[name]['move'].push(mmb);
+                    layout[name]['move'].push(mbm2);
+                } else if (ic[0] == "G") {
+                    layout[name]['move'].push(mmb);
+                    layout[name]['move'].push(mbp);
+                    layout[name]['move'].push(mbm2);
+                    layout[name]['move'].push(mm);
+                } else {
+                    layout[name]['move'].push(mp);
+                    layout[name]['move'].push(mm);
+                    layout[name]['move'].push(mpb);
+                    layout[name]['move'].push(mmb);
+                    layout[name]['move'].push(mbp);
+                    layout[name]['move'].push(mbm2);
+                }
             } else if (ic[1] == "8") {
                 if (ic[0] == "A") {
                     layout[name]['move'].push(mpb);
@@ -417,6 +446,33 @@ function ShowMoves(from) {
                     layout[name]['move'].push(mbm);
                     layout[name]['move'].push(mbp2);
                 } else {
+                    layout[name]['move'].push(mpb);
+                    layout[name]['move'].push(mmb);
+                    layout[name]['move'].push(mbm);
+                    layout[name]['move'].push(mbp2);
+                }
+            } else if (ic[1] == "7") {
+                if (ic[0] == "A") {
+                    layout[name]['move'].push(mp);
+                    layout[name]['move'].push(mpb);
+                    layout[name]['move'].push(mbp2);
+                } else if (ic[0] == "B") {
+                    layout[name]['move'].push(mpb);
+                    layout[name]['move'].push(mbm);
+                    layout[name]['move'].push(mbp2);
+                    layout[name]['move'].push(mp);
+                } else if (ic[0] == "H") {
+                    layout[name]['move'].push(mm);
+                    layout[name]['move'].push(mmb);
+                    layout[name]['move'].push(mbm);
+                } else if (ic[0] == "G") {
+                    layout[name]['move'].push(mmb);
+                    layout[name]['move'].push(mbm);
+                    layout[name]['move'].push(mbp2);
+                    layout[name]['move'].push(mm);
+                } else {
+                    layout[name]['move'].push(mp);
+                    layout[name]['move'].push(mm);
                     layout[name]['move'].push(mpb);
                     layout[name]['move'].push(mmb);
                     layout[name]['move'].push(mbm);
@@ -475,6 +531,8 @@ function ShowMoves(from) {
             var mbp2 = wbchars[wbchars.indexOf(ic[0]) + 1] + (Number(ic[1]) - 2);
             var mbm2 = wbchars[wbchars.indexOf(ic[0]) - 1] + (Number(ic[1]) + 2);
 
+            // o7
+
             if (ic[1] == "1") {
                 if (ic[0] == "A") {
                     layout[name]['move'].push(mp);
@@ -496,6 +554,33 @@ function ShowMoves(from) {
                     layout[name]['move'].push(mbp);
                     layout[name]['move'].push(mbm2);
                 }
+            } else if (ic[1] == "2") {
+                if (ic[0] == "A") {
+                    layout[name]['move'].push(mp);
+                    layout[name]['move'].push(mpb);
+                    layout[name]['move'].push(mbp);
+                } else if (ic[0] == "B") {
+                    layout[name]['move'].push(mpb);
+                    layout[name]['move'].push(mp);
+                    layout[name]['move'].push(mbp);
+                    layout[name]['move'].push(mbm2);
+                } else if (ic[0] == "H") {
+                    layout[name]['move'].push(mm);
+                    layout[name]['move'].push(mmb);
+                    layout[name]['move'].push(mbm2);
+                } else if (ic[0] == "G") {
+                    layout[name]['move'].push(mmb);
+                    layout[name]['move'].push(mbp);
+                    layout[name]['move'].push(mbm2);
+                    layout[name]['move'].push(mm);
+                } else {
+                    layout[name]['move'].push(mp);
+                    layout[name]['move'].push(mm);
+                    layout[name]['move'].push(mpb);
+                    layout[name]['move'].push(mmb);
+                    layout[name]['move'].push(mbp);
+                    layout[name]['move'].push(mbm2);
+                }
             } else if (ic[1] == "8") {
                 if (ic[0] == "A") {
                     layout[name]['move'].push(mpb);
@@ -512,6 +597,33 @@ function ShowMoves(from) {
                     layout[name]['move'].push(mbm);
                     layout[name]['move'].push(mbp2);
                 } else {
+                    layout[name]['move'].push(mpb);
+                    layout[name]['move'].push(mmb);
+                    layout[name]['move'].push(mbm);
+                    layout[name]['move'].push(mbp2);
+                }
+            } else if (ic[1] == "7") {
+                if (ic[0] == "A") {
+                    layout[name]['move'].push(mp);
+                    layout[name]['move'].push(mpb);
+                    layout[name]['move'].push(mbp2);
+                } else if (ic[0] == "B") {
+                    layout[name]['move'].push(mpb);
+                    layout[name]['move'].push(mbm);
+                    layout[name]['move'].push(mbp2);
+                    layout[name]['move'].push(mp);
+                } else if (ic[0] == "H") {
+                    layout[name]['move'].push(mm);
+                    layout[name]['move'].push(mmb);
+                    layout[name]['move'].push(mbm);
+                } else if (ic[0] == "G") {
+                    layout[name]['move'].push(mmb);
+                    layout[name]['move'].push(mbm);
+                    layout[name]['move'].push(mbp2);
+                    layout[name]['move'].push(mm);
+                } else {
+                    layout[name]['move'].push(mp);
+                    layout[name]['move'].push(mm);
                     layout[name]['move'].push(mpb);
                     layout[name]['move'].push(mmb);
                     layout[name]['move'].push(mbm);
@@ -547,10 +659,10 @@ function ShowMoves(from) {
                     layout[name]['move'].push(mm);
                     layout[name]['move'].push(mpb);
                     layout[name]['move'].push(mmb);
-                    layout[name]['move'].push(mbm);
-                    layout[name]['move'].push(mbp2);
                     layout[name]['move'].push(mbp);
                     layout[name]['move'].push(mbm2);
+                    layout[name]['move'].push(mbm);
+                    layout[name]['move'].push(mbp2);
                 }
             }
 
@@ -989,9 +1101,9 @@ do {
 } while(counter != 9);
 
 function HighLight(arr) {
-    if (["♙", "♖", "♗", "♘", "♔"].includes(x.innerHTML)) {
+    if (["♕", "♙", "♖", "♗", "♘", "♔"].includes(x.innerHTML)) {
         arr.forEach(function(item) {
-            if (!["♙", "♖", "♗", "♘", "♔"].includes(document.getElementById(item).innerHTML)) {
+            if (!["♕", "♙", "♖", "♗", "♘", "♔"].includes(document.getElementById(item).innerHTML)) {
                 let ogbg = document.getElementById(item).style.backgroundColor;
                 document.getElementById(item).style.backgroundColor = "LightBlue";
                 document.getElementById(item).onclick = function () { Clicked(this.id) };
@@ -1003,9 +1115,9 @@ function HighLight(arr) {
                 }, 2000);
             }
         });
-    } else if (["♟", "♜", "♝", "♞", "♚"].includes(x.innerHTML)) {
+    } else if (["♛", "♟", "♜", "♝", "♞", "♚"].includes(x.innerHTML)) {
         arr.forEach(function(item) {
-            if (!["♟", "♜", "♝", "♞", "♚"].includes(document.getElementById(item).innerHTML)) {
+            if (!["♛", "♟", "♜", "♝", "♞", "♚"].includes(document.getElementById(item).innerHTML)) {
                 let ogbg = document.getElementById(item).style.backgroundColor;
                 document.getElementById(item).style.backgroundColor = "LightBlue";
                 document.getElementById(item).onclick = function () { Clicked(this.id) };
