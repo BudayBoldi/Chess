@@ -55,20 +55,31 @@ function ShowMoves(from) {
                     layout[name]['move'].push(mm);
                 }
             }
+            
+            if (ic[1] == "2") {
+                for (let i = 1; i <= 2; i++) {
+                    var mn = ic[0] + (Number(ic[1]) + i);
 
-            for (let i = 1; i <= 2; i++) {
-                var mn = ic[0] + (Number(ic[1]) + i);
-
-                if (!((Number(ic[1]) + i) > 8)) {
                     layout[name]['move'].push(mn);
+
+                    if (document.getElementById(mn) && document.getElementById(mn).innerHTML !== "") {
+                        let index = layout[name]['move'].indexOf(mn);
+                        if (index !== -1) {
+                            layout[name]['move'].splice(index, 1);
+                        }
+                        break;
+                    }
                 }
+            } else {
+                var mn = ic[0] + (Number(ic[1]) + 1);
+
+                layout[name]['move'].push(mn);
 
                 if (document.getElementById(mn) && document.getElementById(mn).innerHTML !== "") {
                     let index = layout[name]['move'].indexOf(mn);
                     if (index !== -1) {
                         layout[name]['move'].splice(index, 1);
                     }
-                    break;
                 }
             }
 
@@ -128,19 +139,30 @@ function ShowMoves(from) {
                 }
             }
             
-            for (let i = -1; i >= -2; i--) {
-                var mn = ic[0] + (Number(ic[1]) + i);
+            if (ic[1] == "7") {
+                for (let i = -1; i >= -2; i--) {
+                    var mn = ic[0] + (Number(ic[1]) + i);
 
-                if (!((Number(ic[1]) + i) < 1)) {
                     layout[name]['move'].push(mn);
+
+                    if (document.getElementById(mn) && document.getElementById(mn).innerHTML !== "") {
+                        let index = layout[name]['move'].indexOf(mn);
+                        if (index !== -1) {
+                            layout[name]['move'].splice(index, 1);
+                        }
+                        break;
+                    }
                 }
+            } else {
+                var mn = ic[0] + (Number(ic[1]) - 1);
+
+                layout[name]['move'].push(mn);
 
                 if (document.getElementById(mn) && document.getElementById(mn).innerHTML !== "") {
                     let index = layout[name]['move'].indexOf(mn);
                     if (index !== -1) {
                         layout[name]['move'].splice(index, 1);
                     }
-                    break;
                 }
             }
 
@@ -1045,9 +1067,7 @@ const lephet = [
     "A8", "B8","C8","D8","E8","F8","G8","H8"
 ];
 let counter = 1;
-var ww = 0;
-var bw = 0;
-var turn = "black";
+var timer = false;
 
 do {
     if (counter %2 != 0) {
@@ -1106,13 +1126,14 @@ function HighLight(arr) {
             if (!["♕", "♙", "♖", "♗", "♘", "♔"].includes(document.getElementById(item).innerHTML)) {
                 let ogbg = document.getElementById(item).style.backgroundColor;
                 document.getElementById(item).style.backgroundColor = "LightBlue";
-                document.getElementById(item).onclick = function () { Clicked(this.id) };
+                document.getElementById(item).onclick = function () { Clicked(this.id); timer=true };
                 setTimeout(() => {
                     if (ogbg != "lightblue") {
                         document.getElementById(item).style.backgroundColor = ogbg;
                     }
                     document.getElementById(item).onclick = function () { ShowMoves(this.id) };
                 }, 2000);
+                timer = false;
             }
         });
     } else if (["♛", "♟", "♜", "♝", "♞", "♚"].includes(x.innerHTML)) {
@@ -1120,31 +1141,35 @@ function HighLight(arr) {
             if (!["♛", "♟", "♜", "♝", "♞", "♚"].includes(document.getElementById(item).innerHTML)) {
                 let ogbg = document.getElementById(item).style.backgroundColor;
                 document.getElementById(item).style.backgroundColor = "LightBlue";
-                document.getElementById(item).onclick = function () { Clicked(this.id) };
+                document.getElementById(item).onclick = function () { Clicked(this.id); timer=true };
                 setTimeout(() => {
                     if (ogbg != "lightblue") {
                         document.getElementById(item).style.backgroundColor = ogbg;
                     }
                     document.getElementById(item).onclick = function () { ShowMoves(this.id) };
                 }, 2000);
+                timer = false;
             }
         });
     } else {
         arr.forEach(function(item) {
             let ogbg = document.getElementById(item).style.backgroundColor;
             document.getElementById(item).style.backgroundColor = "LightBlue";
-            document.getElementById(item).onclick = function () { Clicked(this.id) };
+            document.getElementById(item).onclick = function () { Clicked(this.id); timer=true };
             setTimeout(() => {
                 if (ogbg != "lightblue") {
                     document.getElementById(item).style.backgroundColor = ogbg;
                 }
                 document.getElementById(item).onclick = function () { ShowMoves(this.id) };
             }, 2000);
+            timer = false;
         });
     }
 }
 
 function Clicked(to) {
-    document.getElementById(to).innerHTML = x.innerHTML;
-    x.innerHTML = "";
+    if (!timer) {
+        document.getElementById(to).innerHTML = x.innerHTML;
+        x.innerHTML = "";
+    }
 }
